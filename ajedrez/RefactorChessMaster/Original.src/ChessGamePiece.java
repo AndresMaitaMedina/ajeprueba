@@ -675,7 +675,8 @@ public abstract class ChessGamePiece{
             return false;
         }
         if ( this.getColorOfPiece() == ChessGamePiece.WHITE ){
-            if ( enemyPiece.getColorOfPiece() == ChessGamePiece.BLACK ){
+            if ( enemyPiece.getColorOfPiece() == ChessGamePiece.BLACK 
+            		|| enemyPiece.getColorOfPiece() == ChessGamePiece.WHITE  ){
                 return true;
             }
             else
@@ -683,16 +684,8 @@ public abstract class ChessGamePiece{
                 return false;
             }
         }
-        else
-        {
-            if ( enemyPiece.getColorOfPiece() == ChessGamePiece.WHITE ){
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+		return skipMoveGeneration;
+      
     }
     // ----------------------------------------------------------
     /**
