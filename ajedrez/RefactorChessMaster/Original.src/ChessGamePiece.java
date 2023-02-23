@@ -634,7 +634,7 @@ public abstract class ChessGamePiece{
      */
     public boolean hasLegalMoves( ChessGameBoard board ){
         updatePossibleMoves( board );
-        isPieceOnScreen() ;
+        if ( isPieceOnScreen() ){
             for ( String locStr : possibleMoves ){
                 String[] currCoords = locStr.split( "," );
                 int row = Integer.parseInt( currCoords[0] );
@@ -645,7 +645,8 @@ public abstract class ChessGamePiece{
                 }
             }
             return false;
-       
+        }
+        return false;
     }
     // ----------------------------------------------------------
     /**
@@ -675,8 +676,7 @@ public abstract class ChessGamePiece{
             return false;
         }
         if ( this.getColorOfPiece() == ChessGamePiece.WHITE ){
-            if ( enemyPiece.getColorOfPiece() == ChessGamePiece.BLACK 
-            		|| enemyPiece.getColorOfPiece() == ChessGamePiece.WHITE  ){
+            if ( enemyPiece.getColorOfPiece() == ChessGamePiece.BLACK ){
                 return true;
             }
             else
@@ -684,8 +684,16 @@ public abstract class ChessGamePiece{
                 return false;
             }
         }
-		return skipMoveGeneration;
-      
+        else
+        {
+            if ( enemyPiece.getColorOfPiece() == ChessGamePiece.WHITE ){
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
     // ----------------------------------------------------------
     /**

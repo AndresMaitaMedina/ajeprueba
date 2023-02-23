@@ -178,23 +178,17 @@ public class ChessGameEngine{
         for ( int i = 0; i < 2; i++ ){
             int gameLostRetVal = determineGameLost();
             if ( gameLostRetVal < 0 ){
-                askUserToPlayAgain( "Game over - STALEMATE. You should both go"
-                    + " cry in a corner!" );
+                askUserToPlayAgain( "Game over - STALEMATE. You should both go"+ " cry in a corner!" );
                 return;
             }
             else if ( gameLostRetVal > 0 ){
-                askUserToPlayAgain( "Game over - CHECKMATE. " + "Player "
-                    + gameLostRetVal + " loses and should go"
-                    + " cry in a corner!" );
+                askUserToPlayAgain( "Game over - CHECKMATE. " + "Player "+ gameLostRetVal + " loses and should go"+ " cry in a corner!" );
                 return;
             }
             else if ( isKingInCheck( true ) ){
                 JOptionPane.showMessageDialog(
                     board.getParent(),
-                    "Be careful player " + currentPlayer + ", " +
-                    "your king is in check! Your next move must get " +
-                    "him out of check or you're screwed.",
-                    "Warning",
+                    "Be careful player " + currentPlayer + ", " + "your king is in check! Your next move must get " + "him out of check or you're screwed.","Warning",
                     JOptionPane.WARNING_MESSAGE );
             }
             currentPlayer = currentPlayer == 1 ? 2 : 1;
