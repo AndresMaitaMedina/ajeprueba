@@ -140,15 +140,13 @@ public class ChessGameEngine{
             if ( currentPlayer == 1 ){
                 return king1.isChecked( board );
             }
-            return king2.isChecked( board );
-        }
-        else
-        {
-            if ( currentPlayer == 2 ){
+            else if ( currentPlayer == 2 ){
                 return king1.isChecked( board );
             }
             return king2.isChecked( board );
         }
+		return checkCurrent;
+        //asadadadasdas
     }
     /**
      * Asks the user if they want to play again - if they don't, the game exits.
