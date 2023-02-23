@@ -634,7 +634,7 @@ public abstract class ChessGamePiece{
      */
     public boolean hasLegalMoves( ChessGameBoard board ){
         updatePossibleMoves( board );
-        if ( isPieceOnScreen() ){
+        isPieceOnScreen() ;
             for ( String locStr : possibleMoves ){
                 String[] currCoords = locStr.split( "," );
                 int row = Integer.parseInt( currCoords[0] );
@@ -645,8 +645,7 @@ public abstract class ChessGamePiece{
                 }
             }
             return false;
-        }
-        return false;
+       
     }
     // ----------------------------------------------------------
     /**
