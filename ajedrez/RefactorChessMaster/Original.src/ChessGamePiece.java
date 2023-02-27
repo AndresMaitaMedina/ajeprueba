@@ -639,10 +639,10 @@ public abstract class ChessGamePiece{
                 String[] currCoords = locStr.split( "," );
                 int row = Integer.parseInt( currCoords[0] );
                 int col = Integer.parseInt( currCoords[1] );
-                if ( canMove( board, row, col ) ) // only show legal moves
-                {
+                canMove( board, row, col ) ;// only show legal moves
+                
                     return true;
-                }
+                
             }
             return false;
         }
