@@ -90,11 +90,11 @@ public class ChessGameEngine{
         else if ( playerNum == 2 ){
             pieces = board.getAllBlackPieces();
         }
-    
+       
         for ( ChessGamePiece currPiece : pieces ){
-            if ( currPiece.hasLegalMoves( board ) ){
+             currPiece.hasLegalMoves( board );
                 return true;
-            }
+            
         }
         return false;
     }
