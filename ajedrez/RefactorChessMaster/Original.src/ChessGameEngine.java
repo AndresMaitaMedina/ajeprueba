@@ -113,7 +113,7 @@ public class ChessGameEngine{
             if ( currentPiece.getColorOfPiece() == ChessGamePiece.BLACK ){
                 return true;
             }
-            return false;
+            
         }
         else
         // white player
@@ -121,8 +121,9 @@ public class ChessGameEngine{
             if ( currentPiece.getColorOfPiece() == ChessGamePiece.WHITE ){
                 return true;
             }
-            return false;
+
         }
+        return false;
     }
     /**
      * Determines if the requested King is in check.
