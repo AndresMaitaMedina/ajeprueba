@@ -83,17 +83,14 @@ public class ChessGameEngine{
      * @return boolean true if the player does have legal moves, false otherwise
      */
     public boolean playerHasLegalMoves( int playerNum ){
-        ArrayList<ChessGamePiece> pieces;
+        ArrayList<ChessGamePiece> pieces = null;
         if ( playerNum == 1 ){
             pieces = board.getAllWhitePieces();
         }
         else if ( playerNum == 2 ){
             pieces = board.getAllBlackPieces();
         }
-        else
-        {
-            return false;
-        }
+    
         for ( ChessGamePiece currPiece : pieces ){
             if ( currPiece.hasLegalMoves( board ) ){
                 return true;
@@ -272,7 +269,8 @@ public class ChessGameEngine{
                 {
                     int row = squareClicked.getRow();
                     int col = squareClicked.getColumn();
-                    JOptionPane.showMessageDialog( squareClicked, "The move to row " + ( row + 1 ) + " and column "+ ( col + 1 )+ " is either not valid or not legal "   + "for this piece. Choose another move location, "   + "and try using your brain this time!", "Invalid move", JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( squareClicked, "The move to row " + ( row + 1 ) + " and column "+ ( col + 1 )+ " is either not valid or not legal "   + "for this piece. Choose another move location, "   + "and try using your brain this time!", "Invalid move",
+                        JOptionPane.ERROR_MESSAGE );
                 }
               
             }
