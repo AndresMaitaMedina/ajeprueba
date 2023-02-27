@@ -211,7 +211,7 @@ public class ChessGameBoard extends JPanel{
      * Clears the colors on the board.
      */
     public void clearColorsOnBoard(){
-        for ( int i = 0; i < chessCells.length; i++ ){
+        for ( int i = 0; i < chessCells.length; i++  ){
             for ( int j = 0; j < chessCells[0].length; j++ ){
                 if ( ( i + j ) % 2 == 0 ){
                     chessCells[i][j].setBackground( Color.WHITE );

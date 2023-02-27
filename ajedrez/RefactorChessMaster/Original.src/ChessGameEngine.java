@@ -247,21 +247,11 @@ public class ChessGameEngine{
             else
             {
                 if ( currentPiece != null ){
-                    JOptionPane.showMessageDialog(
-                        squareClicked,
-                        "You tried to pick up the other player's piece! "
-                            + "Get some glasses and pick a valid square.",
-                        "Illegal move",
-                        JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( squareClicked,"You tried to pick up the other player's piece! " + "Get some glasses and pick a valid square.","Illegal move",JOptionPane.ERROR_MESSAGE );
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(
-                        squareClicked,
-                        "You tried to pick up an empty square! "
-                            + "Get some glasses and pick a valid square.",
-                        "Illegal move",
-                        JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( squareClicked, "You tried to pick up an empty square! "+ "Get some glasses and pick a valid square.","Illegal move",JOptionPane.ERROR_MESSAGE );
                 }
             }
         }
@@ -282,23 +272,12 @@ public class ChessGameEngine{
                 {
                     int row = squareClicked.getRow();
                     int col = squareClicked.getColumn();
-                    JOptionPane.showMessageDialog(
-                        squareClicked,
-                        "The move to row " + ( row + 1 ) + " and column "
-                            + ( col + 1 )
-                            + " is either not valid or not legal "
-                            + "for this piece. Choose another move location, "
-                            + "and try using your brain this time!",
-                        "Invalid move",
-                        JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( squareClicked, "The move to row " + ( row + 1 ) + " and column "+ ( col + 1 )+ " is either not valid or not legal "   + "for this piece. Choose another move location, "   + "and try using your brain this time!", "Invalid move", JOptionPane.ERROR_MESSAGE );
                 }
-                firstClick = true;
+              
             }
-            else
-            // user is just unselecting the current piece
-            {
-                firstClick = true;
-            }
+
+            firstClick = true;   
         }
     }
 }
