@@ -216,14 +216,20 @@ public class ChessGameEngine{
         {
             return 2;
         }
-        if ( ( !king1.isChecked( board ) && !playerHasLegalMoves( 1 ) )
-            || ( !king2.isChecked( board ) && !playerHasLegalMoves( 2 ) )
-            || ( board.getAllWhitePieces().size() == 1 &&
-                board.getAllBlackPieces().size() == 1 ) ) // stalemate
-        {
-            return -1;
-        }
+        vaca();
         return 0; // game is still in play
+    }
+    
+    public int vaca() {
+    	if ( ( !king1.isChecked( board ) && !playerHasLegalMoves( 1 ) )
+                || ( !king2.isChecked( board ) && !playerHasLegalMoves( 2 ) )
+                || ( board.getAllWhitePieces().size() == 1 &&
+                    board.getAllBlackPieces().size() == 1 ) ) // stalemate
+            {
+                return -1;
+            }
+		return currentPlayer;
+    	
     }
     // ----------------------------------------------------------
     /**
