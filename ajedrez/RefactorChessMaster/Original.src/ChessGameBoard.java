@@ -1,8 +1,10 @@
+
 import java.util.ArrayList;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.Color;
 import javax.swing.JPanel;
+
 import java.awt.GridLayout;
 // -------------------------------------------------------------------------
 /**
@@ -14,6 +16,9 @@ import java.awt.GridLayout;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
+
+
+
 public class ChessGameBoard extends JPanel{
     private BoardSquare[][] chessCells;
     private BoardListener   listener;

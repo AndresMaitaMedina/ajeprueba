@@ -1,3 +1,4 @@
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 // -------------------------------------------------------------------------
@@ -9,6 +10,8 @@ import javax.swing.JPanel;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
+
+
 public class BoardSquare
     extends JPanel{
     private int            row;

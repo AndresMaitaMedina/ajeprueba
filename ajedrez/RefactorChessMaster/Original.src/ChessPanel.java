@@ -1,5 +1,8 @@
+
 import java.awt.*;
 import javax.swing.*;
+
+
 // -------------------------------------------------------------------------
 /**
  * The main panel of the Chess game.

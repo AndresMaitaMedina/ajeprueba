@@ -1,5 +1,8 @@
+
 import javax.swing.ImageIcon;
+
 import java.util.ArrayList;
+
 // -------------------------------------------------------------------------
 /**
  * Represents a King game piece.

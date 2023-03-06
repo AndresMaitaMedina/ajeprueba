@@ -1,5 +1,8 @@
+
 import javax.swing.ImageIcon;
+
 import java.util.ArrayList;
+
 // -------------------------------------------------------------------------
 /**
  * Represents a Pawn game piece. Unique in that it can move two locations on its

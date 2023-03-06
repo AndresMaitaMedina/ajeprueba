@@ -1,5 +1,9 @@
+
 import javax.swing.ImageIcon;
+
 import java.util.ArrayList;
+
+
 // -------------------------------------------------------------------------
 /**
  * Represents a Knight game piece.

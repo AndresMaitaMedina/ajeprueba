@@ -1,3 +1,4 @@
+
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.Date;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
+
 public class ChessGameLog
     extends JScrollPane{
     private JTextArea textArea;

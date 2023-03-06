@@ -1,6 +1,8 @@
+
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+
 // -------------------------------------------------------------------------
 /**
  * Abstract class that is used to represent a game piece on the chess board.
@@ -13,6 +15,7 @@ import javax.swing.ImageIcon;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
+
 public abstract class ChessGamePiece{
     private boolean             skipMoveGeneration;
     private int                 pieceColor;
