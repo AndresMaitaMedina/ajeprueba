@@ -82,15 +82,22 @@ public class ChessGameBoard extends JPanel{
         ArrayList<ChessGamePiece> whitePieces = new ArrayList<ChessGamePiece>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
-                if ( chessCells[i][j].getPieceOnSquare() != null
-                    && chessCells[i][j].getPieceOnSquare().getColorOfPiece() ==
-                        ChessGamePiece.WHITE ){
-                    whitePieces.add( chessCells[i][j].getPieceOnSquare() );
-                }
+            	getAllWhitePiecesComplement(i,j);
+            	}
             }
-        }
+        
         return whitePieces;
     }
+    
+    public ArrayList<ChessGamePiece> getAllWhitePiecesComplement(int i, int j){
+        ArrayList<ChessGamePiece> whitePieces = new ArrayList<ChessGamePiece>();
+        if ( chessCells[i][j].getPieceOnSquare() != null
+                && chessCells[i][j].getPieceOnSquare().getColorOfPiece() ==
+                    ChessGamePiece.WHITE ){
+                whitePieces.add( chessCells[i][j].getPieceOnSquare() );
+            
+        }
+		return whitePieces;}
     // ----------------------------------------------------------
     /**
      * Gets all the black pieces on the board
