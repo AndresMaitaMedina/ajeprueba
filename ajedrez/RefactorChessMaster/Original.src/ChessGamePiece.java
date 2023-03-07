@@ -275,24 +275,12 @@ public abstract class ChessGamePiece{
     }
     
     public boolean move( ChessGameBoard board, int row, int col ){
-        if ( canMove( board, row, col ) ){
-            String moveLog = this.toString() + " -> ";
-            board.clearCell( pieceRow, pieceColumn );
-            if ( isEnemy( board, row, col ) ){
-                ChessGraveyard graveyard;
-                ChessGameEngine gameEngine =
-                    ( (ChessPanel)board.getParent() ).getGameEngine();
-                if ( gameEngine.getCurrentPlayer() == 1 ){
-                    graveyard =
-                        ( (ChessPanel)board.getParent() ).getGraveyard( 2 );
-                }
-                else
-                {
-                    graveyard =
-                        ( (ChessPanel)board.getParent() ).getGraveyard( 1 );
-                }
-                graveyard.addPiece(
-                    board.getCell( row, col ).getPieceOnSquare() );
+        if ( !canMove( board, row, col ) ){
+        	return false;}
+        String moveLog = this.toString() + " -> ";
+        board.clearCell( pieceRow, pieceColumn );
+        if ( isEnemy( board, row, col ) ){
+                movea(board, row, col );
             }
             setPieceLocation( row, col );
             moveLog += " (" + row + ", " + col + ")";
@@ -303,12 +291,23 @@ public abstract class ChessGamePiece{
             }
             return true;
         }
+    public void movea( ChessGameBoard board, int row, int col  ){
+        ChessGraveyard graveyard;
+        ChessGameEngine gameEngine =
+            ( (ChessPanel)board.getParent() ).getGameEngine();
+    	if ( gameEngine.getCurrentPlayer() == 1 ){
+            graveyard =
+                ( (ChessPanel)board.getParent() ).getGraveyard( 2 );
+        }
         else
         {
-            return false;
+            graveyard =
+                ( (ChessPanel)board.getParent() ).getGraveyard( 1 );
         }
+        graveyard.addPiece(
+            board.getCell( row, col ).getPieceOnSquare() );
     }
-
+    
     public boolean canMove( ChessGameBoard board, int row, int col ){
         updatePossibleMoves( board );
         if ( possibleMoves.indexOf( row + "," + col ) > -1 ){
