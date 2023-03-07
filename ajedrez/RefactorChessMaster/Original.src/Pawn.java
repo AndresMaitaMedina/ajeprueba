@@ -46,12 +46,17 @@ public class Pawn
      *            the col to move to
      * @return boolean true if the move was successful, false otherwise
      */
-    @Override
     public boolean move( ChessGameBoard board, int row, int col ){
         if ( super.move( board, row, col ) ){
             notMoved = false;
             possibleMoves = calculatePossibleMoves( board );
-            if ( ( getColorOfPiece() == ChessGamePiece.BLACK && row == 7 )
+            movec(board,row,col);
+            return true;
+        }
+        return false;
+    }
+    public boolean movec( ChessGameBoard board, int row, int col ){
+    	if ( ( getColorOfPiece() == ChessGamePiece.BLACK && row == 7 )
                 || ( getColorOfPiece() == ChessGamePiece.WHITE && row == 0 ) ){ // pawn has reached the end of the board, promote it to queen
                 board.getCell( row, col ).setPieceOnSquare( new Queen(
                     board,
@@ -59,9 +64,8 @@ public class Pawn
                     col,
                     getColorOfPiece() ) );
             }
-            return true;
-        }
-        return false;
+		return notMoved;
+    	
     }
     /**
      * Calculates the possible moves for this piece. These are ALL the possible
