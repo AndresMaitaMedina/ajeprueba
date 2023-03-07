@@ -218,16 +218,21 @@ public class ChessGameBoard extends JPanel{
     public void clearColorsOnBoard(){
         for ( int i = 0; i < chessCells.length; i++  ){
             for ( int j = 0; j < chessCells[0].length; j++ ){
-                if ( ( i + j ) % 2 == 0 ){
-                    chessCells[i][j].setBackground( Color.WHITE );
-                }
-                else
-                {
-                    chessCells[i][j].setBackground( Color.BLACK );
-                }
+            	clearColorsOnBoardComplement(i,j);
             }
         }
     }
+    
+    public void clearColorsOnBoardComplement(int i,int j){
+    	 if ( ( i + j ) % 2 == 0 ){
+             chessCells[i][j].setBackground( Color.WHITE );
+         }
+         else
+         {
+             chessCells[i][j].setBackground( Color.BLACK );
+         }
+    }
+    
     /**
      * Listens for clicks on BoardSquares.
      *

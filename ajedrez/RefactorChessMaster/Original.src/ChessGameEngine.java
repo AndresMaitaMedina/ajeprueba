@@ -177,26 +177,30 @@ public class ChessGameEngine{
     private void checkGameConditions(){
         int origPlayer = currentPlayer;
         for ( int i = 0; i < 2; i++ ){
-            int gameLostRetVal = determineGameLost();
-            if ( gameLostRetVal < 0 ){
-                askUserToPlayAgain( "Game over - STALEMATE. You should both go"+ " cry in a corner!" );
-                return;
-            }
-            else if ( gameLostRetVal > 0 ){
-                askUserToPlayAgain( "Game over - CHECKMATE. " + "Player "+ gameLostRetVal + " loses and should go"+ " cry in a corner!" );
-                return;
-            }
-            else if ( isKingInCheck( true ) ){
-                JOptionPane.showMessageDialog(
-                    board.getParent(),
-                    "Be careful player " + currentPlayer + ", " + "your king is in check! Your next move must get " + "him out of check or you're screwed.","Warning",
-                    JOptionPane.WARNING_MESSAGE );
-            }
+        	checkGameConditionsComplement();
             currentPlayer = currentPlayer == 1 ? 2 : 1;
             // check the next player's conditions as well.
         }
         currentPlayer = origPlayer;
         nextTurn();
+    }
+    
+    private void checkGameConditionsComplement() {
+    	int gameLostRetVal = determineGameLost();
+        if ( gameLostRetVal < 0 ){
+            askUserToPlayAgain( "Game over - STALEMATE. You should both go"+ " cry in a corner!" );
+            return;
+        }
+        else if ( gameLostRetVal > 0 ){
+            askUserToPlayAgain( "Game over - CHECKMATE. " + "Player "+ gameLostRetVal + " loses and should go"+ " cry in a corner!" );
+            return;
+        }
+        else if ( isKingInCheck( true ) ){
+            JOptionPane.showMessageDialog(
+                board.getParent(),
+                "Be careful player " + currentPlayer + ", " + "your king is in check! Your next move must get " + "him out of check or you're screwed.","Warning",
+                JOptionPane.WARNING_MESSAGE );
+        }
     }
     /**
      * Determines if the game is lost. Returns 1 or 2 for the losing player, -1
