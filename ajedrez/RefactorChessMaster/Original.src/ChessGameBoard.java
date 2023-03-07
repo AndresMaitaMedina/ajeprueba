@@ -143,25 +143,32 @@ public class ChessGameBoard extends JPanel{
             ( (ChessPanel)getParent() ).getGraveyard( 2 ).clearGraveyard();
             ( (ChessPanel)getParent() ).getGameLog().clearLog();
         }
-        for ( int i = 0; i < chessCells.length; i++ ){
+         resetBoardComplement2 (addAfterReset);
+        repaint();
+        //revalidate();
+        // only the combination of these two calls work...*shrug*
+    }
+    public void resetBoardComplement ( int i,int j ){
+    	 chessCells[i][j] = new BoardSquare( i, j, null );
+         if ( ( i + j ) % 2 == 0 ){
+             chessCells[i][j].setBackground( Color.WHITE );
+         }
+         else
+         {
+             chessCells[i][j].setBackground( Color.BLACK );
+         }
+    }
+    public void resetBoardComplement2 ( boolean addAfterReset) {
+    	for ( int i = 0; i < chessCells.length; i++ ){
             for ( int j = 0; j < chessCells[0].length; j++ ){
                 chessCells[i][j] = new BoardSquare( i, j, null );
-                if ( ( i + j ) % 2 == 0 ){
-                    chessCells[i][j].setBackground( Color.WHITE );
-                }
-                else
-                {
-                    chessCells[i][j].setBackground( Color.BLACK );
-                }
+                resetBoardComplement (i,j);
                 if ( addAfterReset ){
                     chessCells[i][j].addMouseListener( listener );
                     this.add( chessCells[i][j] );
                 }
             }
         }
-        repaint();
-        //revalidate();
-        // only the combination of these two calls work...*shrug*
     }
     /**
      * (Re)initializes this ChessGameBoard to its default layout with all 32
