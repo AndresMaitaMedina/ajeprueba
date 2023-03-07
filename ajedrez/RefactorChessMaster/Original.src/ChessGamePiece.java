@@ -387,20 +387,24 @@ public abstract class ChessGamePiece{
         updatePossibleMoves( board );
         if ( isPieceOnScreen() ){
             for ( String locStr : possibleMoves ){
-                String[] currCoords = locStr.split( "," );
-                int row = Integer.parseInt( currCoords[0] );
-                int col = Integer.parseInt( currCoords[1] );
-                if ( canMove( board, row, col ) ) // only show legal moves
-                {
-                    if ( isEnemy( board, row, col ) ){
-                        board.getCell( row, col ).setBackground(
-                            Color.YELLOW );
-                    }
-                    else
-                    {
-                        board.getCell( row, col ).setBackground( Color.PINK );
-                    }
-                }
+            	showLegalMovesComplement(board,locStr );
+            }
+        }
+    }
+    
+    public void showLegalMovesComplement( ChessGameBoard board ,String locStr ){
+    	String[] currCoords = locStr.split( "," );
+        int row = Integer.parseInt( currCoords[0] );
+        int col = Integer.parseInt( currCoords[1] );
+        if ( canMove( board, row, col ) ) // only show legal moves
+        {
+            if ( isEnemy( board, row, col ) ){
+                board.getCell( row, col ).setBackground(
+                    Color.YELLOW );
+            }
+            else
+            {
+                board.getCell( row, col ).setBackground( Color.PINK );
             }
         }
     }

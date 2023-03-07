@@ -42,17 +42,22 @@ public class Knight
         ArrayList<String> moves = new ArrayList<String>();
         for ( int i = 2; i >= -2; i -= 4 ){
             for ( int j = 1; j >= -1; j -= 2 ){
-                if ( isOnScreen( pieceRow + i, pieceColumn + j )
-                    && ( isEnemy( board, pieceRow + i, pieceColumn + j ) ||
-                        board.getCell(
-                        pieceRow + i,
-                        pieceColumn + j )
-                        .getPieceOnSquare() == null ) ){
-                    moves.add( ( pieceRow + i ) + "," + ( pieceColumn + j ) );
-                }
+            	calculateNorthMovesComplement(board,i,j);
             }
         }
         return moves;
+    }
+    private ArrayList<String> calculateNorthMovesComplement( ChessGameBoard board , int i ,int j){
+        ArrayList<String> moves = new ArrayList<String>();
+    	if ( isOnScreen( pieceRow + i, pieceColumn + j )
+                && ( isEnemy( board, pieceRow + i, pieceColumn + j ) ||
+                    board.getCell(
+                    pieceRow + i,
+                    pieceColumn + j )
+                    .getPieceOnSquare() == null ) ){
+                moves.add( ( pieceRow + i ) + "," + ( pieceColumn + j ) );
+            }
+		return moves;
     }
     /**
      * Calculates the moves of the knight in the south direction relative to the
@@ -66,17 +71,23 @@ public class Knight
         ArrayList<String> moves = new ArrayList<String>();
         for ( int i = 1; i >= -1; i -= 2 ){
             for ( int j = 2; j >= -2; j -= 4 ){
-                if ( isOnScreen( pieceRow + i, pieceColumn + j )
-                    && ( isEnemy( board, pieceRow + i, pieceColumn + j ) ||
-                        board.getCell(
-                        pieceRow + i,
-                        pieceColumn + j )
-                        .getPieceOnSquare() == null ) ){
-                    moves.add( ( pieceRow + i ) + "," + ( pieceColumn + j ) );
-                }
+            	calculateSouthMovesComplement( board,i,j);
             }
         }
         return moves;
+    }
+    
+    private ArrayList<String> calculateSouthMovesComplement( ChessGameBoard board,int i,int j ){
+    	ArrayList<String> moves = new ArrayList<String>();
+    	 if ( isOnScreen( pieceRow + i, pieceColumn + j )
+                 && ( isEnemy( board, pieceRow + i, pieceColumn + j ) ||
+                     board.getCell(
+                     pieceRow + i,
+                     pieceColumn + j )
+                     .getPieceOnSquare() == null ) ){
+                 moves.add( ( pieceRow + i ) + "," + ( pieceColumn + j ) );
+             }
+		return moves;
     }
     /**
      * Calculates the possible moves for this Knight.
