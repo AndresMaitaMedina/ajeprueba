@@ -1,7 +1,10 @@
 
+
 import javax.swing.JTextArea;
+
 import javax.swing.JScrollPane;
 import java.util.Date;
+
 // -------------------------------------------------------------------------
 /**
  * A scrollable textArea representing the game log. (i.e. moves made by each

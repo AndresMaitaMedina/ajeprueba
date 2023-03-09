@@ -143,12 +143,24 @@ public class ChessGameBoard extends JPanel{
             ( (ChessPanel)getParent() ).getGraveyard( 2 ).clearGraveyard();
             ( (ChessPanel)getParent() ).getGameLog().clearLog();
         }
-         resetBoardComplement2 (addAfterReset);
+         resetBoardComplement (addAfterReset);
         repaint();
         //revalidate();
         // only the combination of these two calls work...*shrug*
     }
-    public void resetBoardComplement ( int i,int j ){
+    public void resetBoardComplement ( boolean addAfterReset) {
+    	for ( int i = 0; i < chessCells.length; i++ ){
+            for ( int j = 0; j < chessCells[0].length; j++ ){
+                chessCells[i][j] = new BoardSquare( i, j, null );
+                resetBoardComplement2 (i,j);
+                if ( addAfterReset ){
+                    chessCells[i][j].addMouseListener( listener );
+                    this.add( chessCells[i][j] );
+                }
+            }
+        }
+    }
+    public void resetBoardComplement2 ( int i,int j ){
     	 chessCells[i][j] = new BoardSquare( i, j, null );
          if ( ( i + j ) % 2 == 0 ){
              chessCells[i][j].setBackground( Color.WHITE );
@@ -158,18 +170,7 @@ public class ChessGameBoard extends JPanel{
              chessCells[i][j].setBackground( Color.BLACK );
          }
     }
-    public void resetBoardComplement2 ( boolean addAfterReset) {
-    	for ( int i = 0; i < chessCells.length; i++ ){
-            for ( int j = 0; j < chessCells[0].length; j++ ){
-                chessCells[i][j] = new BoardSquare( i, j, null );
-                resetBoardComplement (i,j);
-                if ( addAfterReset ){
-                    chessCells[i][j].addMouseListener( listener );
-                    this.add( chessCells[i][j] );
-                }
-            }
-        }
-    }
+    
     /**
      * (Re)initializes this ChessGameBoard to its default layout with all 32
      * pieces added.

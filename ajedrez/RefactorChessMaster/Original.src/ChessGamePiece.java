@@ -1,6 +1,8 @@
+
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+
 
 public abstract class ChessGamePiece{
     private boolean             skipMoveGeneration;

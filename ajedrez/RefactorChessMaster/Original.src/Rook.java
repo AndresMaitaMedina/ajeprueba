@@ -1,4 +1,5 @@
 
+
 import javax.swing.ImageIcon;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
+
 public class Rook
     extends ChessGamePiece{
     // private ArrayList<String> possibleMoves;
